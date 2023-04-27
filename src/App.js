@@ -3,6 +3,7 @@ import "./App.css";
 import cherry from './cherry.png';
 import seven from './seven.png';
 import bar from './bar.png';
+import InstructionsModal from "./InstructionsModal";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
   const [message, setMessage] = useState("");
   const reelValues = [seven, bar, cherry];
   const [hasSpun, setHasSpun] = useState(false);
+  const [isInstructionsModalOpen, setIsInstructionsModalOpen] = useState(false);
 
 
 
@@ -31,6 +33,10 @@ function App() {
       setMessage("Bet amount must be at least 1 coin.");
     }
   }
+  function toggleInstructionsModal() {
+    setIsInstructionsModalOpen(!isInstructionsModalOpen);
+  }
+  
   
 
   function calculatePayout(reels) {
@@ -90,14 +96,10 @@ function App() {
     <div className="container">
     <div className="App">
       <h1>Slot Machine</h1>
-      <p>
-        Input a coin to start the game. The game spins three reels, each displaying
-        a random value. If all three displayed values are the same, you win a
-        payout. The payout amount is determined by the payout table below. The
-        maximum amount you can win is 500 coins. You can select the amount you
-        want to bet for each spin. You can deposit as many coins as you want in a
-        single session.
-      </p>
+      
+      <button onClick={toggleInstructionsModal}>Instructions</button>
+{isInstructionsModalOpen && <InstructionsModal onClose={toggleInstructionsModal} />}
+
   
       <div className="balance">
         <p>Remaining coins: {balance}</p>
