@@ -2,7 +2,7 @@
 
 A modern and colorful casino-themed slot machine app built with React. Users can deposit coins, adjust their bet, and spin the reels to win payouts based on different combinations.
 
-![Screenshot](screenshot.png)
+![Screenshot](./src/screenshot.png)
 
 
 ## Table of Contents
